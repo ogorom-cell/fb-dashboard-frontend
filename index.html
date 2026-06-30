@@ -523,7 +523,7 @@ function renderKPIs(metrics) {
   const totalFans = fans.length ? fans[fans.length - 1].value : null;
   const newFans = sumMetric(metrics.page_fan_adds);
   const impressions = sumMetric(metrics.page_impressions);
-  const reach = sumMetric(metrics.page_reach);
+  const reach = sumMetric(metrics.page_impressions_unique);
   const engage = sumMetric(metrics.page_post_engagements);
   const video = sumMetric(metrics.page_video_views);
 
@@ -538,7 +538,7 @@ function renderKPIs(metrics) {
 // ── Charts ─────────────────────────────────────────────────────────────────────
 function renderCharts(metrics) {
   const impressionData = metrics.page_impressions || [];
-  const reachData = metrics.page_reach || [];
+  const reachData = metrics.page_impressions_unique || [];
   const engageData = metrics.page_post_engagements || [];
 
   const labels = impressionData.map(v => fmtDate(v.end_time));
