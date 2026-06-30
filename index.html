@@ -625,8 +625,8 @@ function renderPosts(posts) {
     const insights = p.insights || {};
     const reach = fmt(insights.post_impressions_unique);
     const engage = fmt(insights.post_engaged_users);
-    const likes = fmt(insights.post_reactions_like_total ?? p.likes?.summary?.total_count);
-    const type = (p.attachments?.data?.[0]?.type || p.type || 'post').replace(/_/g, ' ');
+    const likes = fmt(insights.post_reactions_like_total);
+    const type = (p.attachments?.data?.[0]?.media_type || 'post').replace(/_/g, ' ');
     return `
       <tr>
         <td><div class="post-msg" title="${msg.replace(/"/g, '&quot;')}">${msg}</div>
