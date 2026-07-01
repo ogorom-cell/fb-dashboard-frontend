@@ -14,50 +14,19 @@
       --text: #050505;
       --sub: #65676b;
       --border: #dce1e7;
-      --success: #42b72a;
+      --green: #42b72a;
       --radius: 8px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
     /* LOGIN */
-    #login-screen {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(160deg, var(--fb-blue) 0%, #0d47a1 100%);
-    }
-    .login-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 40px 48px;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-    }
+    #login-screen { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(160deg, var(--fb-blue) 0%, #0d47a1 100%); }
+    .login-card { background: var(--card); border-radius: 12px; padding: 40px 48px; max-width: 400px; width: 90%; text-align: center; box-shadow: 0 8px 40px rgba(0,0,0,0.18); }
     .login-logo { font-size: 48px; margin-bottom: 8px; }
     .login-card h1 { font-size: 22px; font-weight: 700; color: var(--fb-blue); margin-bottom: 6px; }
     .login-card p { color: var(--sub); font-size: 14px; margin-bottom: 28px; }
-    .btn-fb {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--fb-blue);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 14px 28px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      width: 100%;
-      justify-content: center;
-      transition: background 0.15s;
-      text-decoration: none;
-    }
+    .btn-fb { display: inline-flex; align-items: center; gap: 10px; background: var(--fb-blue); color: #fff; border: none; border-radius: 8px; padding: 14px 28px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; justify-content: center; transition: background 0.15s; text-decoration: none; }
     .btn-fb:hover { background: var(--fb-dark); }
     .btn-fb svg { width: 22px; height: 22px; fill: #fff; }
 
@@ -65,217 +34,77 @@
     #app-screen { display: none; min-height: 100vh; }
 
     /* TOPBAR */
-    .topbar {
-      background: var(--fb-blue);
-      color: #fff;
-      padding: 0 24px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
+    .topbar { background: var(--fb-blue); color: #fff; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
     .topbar-left { display: flex; align-items: center; gap: 12px; }
-    .topbar-logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+    .topbar-logo { font-size: 22px; font-weight: 800; }
     .topbar-title { font-size: 16px; font-weight: 600; opacity: 0.9; }
     .topbar-right { display: flex; align-items: center; gap: 16px; }
     .user-badge { display: flex; align-items: center; gap: 8px; font-size: 14px; }
-    .user-avatar {
-      width: 32px; height: 32px;
-      background: rgba(255,255,255,0.25);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .btn-logout {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
+    .user-avatar { width: 32px; height: 32px; background: rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+    .btn-logout { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 14px; border-radius: 6px; font-size: 13px; cursor: pointer; transition: background 0.15s; }
     .btn-logout:hover { background: rgba(255,255,255,0.25); }
 
-    /* MAIN LAYOUT */
-    .main-wrap { max-width: 1200px; margin: 0 auto; padding: 24px 20px; }
+    /* MAIN */
+    .main-wrap { max-width: 1280px; margin: 0 auto; padding: 24px 20px; }
 
     /* PAGE SELECTOR */
-    .page-selector-wrap {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+    .page-selector-wrap { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .page-selector-wrap label { font-weight: 600; font-size: 14px; color: var(--sub); white-space: nowrap; }
-    .page-select {
-      flex: 1;
-      min-width: 200px;
-      padding: 10px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-size: 15px;
-      background: #fff;
-      cursor: pointer;
-      outline: none;
-      color: var(--text);
-    }
+    .page-select { flex: 1; min-width: 200px; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 15px; background: #fff; cursor: pointer; outline: none; color: var(--text); }
     .page-select:focus { border-color: var(--fb-blue); }
 
-    /* DATE RANGE TABS */
-    .controls-bar {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .tab-group { display: flex; border-radius: 8px; overflow: hidden; border: 1.5px solid var(--border); background: #fff; }
-    .tab-btn {
-      background: transparent;
-      border: none;
-      padding: 8px 18px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--sub);
-      cursor: pointer;
-      transition: background 0.12s, color 0.12s;
-      border-right: 1px solid var(--border);
-    }
-    .tab-btn:last-child { border-right: none; }
-    .tab-btn.active { background: var(--fb-blue); color: #fff; }
-    .tab-btn:hover:not(.active) { background: var(--bg); }
+    /* DATE RANGE */
+    .date-range-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 20px; margin-bottom: 20px; }
+    .date-range-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .preset-group { display: flex; border-radius: 8px; overflow: hidden; border: 1.5px solid var(--border); background: #fff; }
+    .preset-btn { background: transparent; border: none; border-right: 1px solid var(--border); padding: 8px 14px; font-size: 13px; font-weight: 600; color: var(--sub); cursor: pointer; transition: background 0.12s, color 0.12s; white-space: nowrap; }
+    .preset-btn:last-child { border-right: none; }
+    .preset-btn.active { background: var(--fb-blue); color: #fff; }
+    .preset-btn:hover:not(.active) { background: var(--bg); }
+    .date-sep { color: var(--sub); font-size: 13px; font-weight: 600; }
+    .date-inputs { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .date-label { font-size: 12px; font-weight: 600; color: var(--sub); }
+    .date-input { padding: 8px 12px; border: 1.5px solid var(--border); border-radius: 6px; font-size: 13px; color: var(--text); outline: none; cursor: pointer; }
+    .date-input:focus { border-color: var(--fb-blue); }
+    .btn-apply { background: var(--fb-blue); color: #fff; border: none; border-radius: 6px; padding: 8px 16px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+    .btn-apply:hover { background: var(--fb-dark); }
 
-    /* KPI CARDS */
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .kpi-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    .kpi-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--fb-blue);
-    }
-    .kpi-label { font-size: 12px; font-weight: 600; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-    .kpi-value { font-size: 28px; font-weight: 800; color: var(--text); line-height: 1; }
-    .kpi-sub { font-size: 12px; color: var(--sub); margin-top: 6px; }
+    /* KPI GRID */
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; position: relative; overflow: hidden; }
+    .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--fb-blue); }
+    .kpi-card.green::before { background: var(--green); }
+    .kpi-card.gold::before { background: #f59e0b; }
+    .kpi-label { font-size: 11px; font-weight: 700; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .kpi-value { font-size: 26px; font-weight: 800; color: var(--text); line-height: 1; }
+    .kpi-sub { font-size: 11px; color: var(--sub); margin-top: 5px; }
 
     /* CHARTS */
-    .charts-row {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 20px;
-      margin-bottom: 24px;
-    }
+    .charts-row { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 20px; }
     @media (max-width: 768px) { .charts-row { grid-template-columns: 1fr; } }
-    .chart-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-    .chart-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+    .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .chart-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; color: var(--text); }
     .chart-wrap { position: relative; height: 220px; }
 
     /* POSTS TABLE */
-    .table-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      margin-bottom: 24px;
-    }
-    .table-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+    .table-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; }
+    .table-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; }
     .posts-table { width: 100%; border-collapse: collapse; }
-    .posts-table th {
-      text-align: left;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--sub);
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      padding: 8px 12px;
-      border-bottom: 2px solid var(--border);
-    }
-    .posts-table td {
-      padding: 12px 12px;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-      vertical-align: top;
-    }
+    .posts-table th { text-align: left; font-size: 11px; font-weight: 700; color: var(--sub); text-transform: uppercase; letter-spacing: 0.4px; padding: 8px 12px; border-bottom: 2px solid var(--border); }
+    .posts-table td { padding: 11px 12px; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: top; }
     .posts-table tr:last-child td { border-bottom: none; }
     .posts-table tr:hover td { background: var(--bg); }
-    .post-msg {
-      max-width: 340px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      color: var(--text);
-    }
-    .post-link { color: var(--fb-blue); text-decoration: none; font-size: 12px; }
+    .post-msg { max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .post-link { color: var(--fb-blue); text-decoration: none; font-size: 11px; }
     .post-link:hover { text-decoration: underline; }
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 600;
-      background: #e7f3ff;
-      color: var(--fb-blue);
-    }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background: #e7f3ff; color: var(--fb-blue); }
 
-    /* EMPTY / LOADING STATES */
-    .empty-state {
-      text-align: center;
-      padding: 48px 20px;
-      color: var(--sub);
-    }
-    .empty-state .icon { font-size: 40px; margin-bottom: 12px; }
-    .empty-state h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
-    .empty-state p { font-size: 14px; }
-    .spinner {
-      width: 32px; height: 32px;
-      border: 3px solid var(--border);
-      border-top-color: var(--fb-blue);
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-      margin: 0 auto 12px;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .error-bar {
-      background: #fff3cd;
-      border: 1px solid #ffc107;
-      color: #856404;
-      padding: 10px 16px;
-      border-radius: var(--radius);
-      font-size: 13px;
-      margin-bottom: 16px;
-      display: none;
-    }
+    /* STATES */
+    .empty-state { text-align: center; padding: 40px 20px; color: var(--sub); }
+    .empty-state .icon { font-size: 36px; margin-bottom: 10px; }
+    .empty-state h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+    .empty-state p { font-size: 13px; }
+    .error-bar { background: #fff3cd; border: 1px solid #ffc107; color: #856404; padding: 10px 16px; border-radius: var(--radius); font-size: 13px; margin-bottom: 16px; display: none; }
     .error-bar.show { display: block; }
   </style>
 </head>
@@ -296,7 +125,6 @@
 
 <!-- APP -->
 <div id="app-screen">
-  <!-- Topbar -->
   <div class="topbar">
     <div class="topbar-left">
       <div class="topbar-logo">📘</div>
@@ -312,34 +140,46 @@
   </div>
 
   <div class="main-wrap">
-    <!-- Error bar -->
     <div class="error-bar" id="error-bar"></div>
 
     <!-- Page selector -->
     <div class="page-selector-wrap">
-      <label>Select Page</label>
+      <label>Page</label>
       <select class="page-select" id="page-select" onchange="onPageChange()">
-        <option value="">Loading your pages…</option>
+        <option value="">Loading pages…</option>
       </select>
     </div>
 
     <!-- Date range -->
-    <div class="controls-bar">
-      <div class="tab-group">
-        <button class="tab-btn active" data-days="7" onclick="setDays(7, this)">7 days</button>
-        <button class="tab-btn" data-days="28" onclick="setDays(28, this)">28 days</button>
-        <button class="tab-btn" data-days="90" onclick="setDays(90, this)">90 days</button>
+    <div class="date-range-card">
+      <div class="date-range-row">
+        <div class="preset-group">
+          <button class="preset-btn" onclick="setPreset('7d',this)">Last 7D</button>
+          <button class="preset-btn" onclick="setPreset('28d',this)">Last 28D</button>
+          <button class="preset-btn" onclick="setPreset('90d',this)">Last 90D</button>
+          <button class="preset-btn" onclick="setPreset('this_month',this)">This Month</button>
+          <button class="preset-btn" onclick="setPreset('last_month',this)">Last Month</button>
+        </div>
+        <div class="date-inputs">
+          <span class="date-label">From</span>
+          <input type="date" class="date-input" id="date-from" />
+          <span class="date-label">To</span>
+          <input type="date" class="date-input" id="date-to" />
+          <button class="btn-apply" onclick="applyCustomRange()">Apply</button>
+        </div>
       </div>
     </div>
 
     <!-- KPI cards -->
-    <div class="kpi-grid" id="kpi-grid">
+    <div class="kpi-grid">
       <div class="kpi-card"><div class="kpi-label">Total Fans</div><div class="kpi-value" id="kpi-fans">—</div><div class="kpi-sub">Page followers</div></div>
-      <div class="kpi-card"><div class="kpi-label">New Fans</div><div class="kpi-value" id="kpi-new-fans">—</div><div class="kpi-sub">In selected period</div></div>
+      <div class="kpi-card"><div class="kpi-label">New Fans</div><div class="kpi-value" id="kpi-new-fans">—</div><div class="kpi-sub">In period</div></div>
       <div class="kpi-card"><div class="kpi-label">Impressions</div><div class="kpi-value" id="kpi-impressions">—</div><div class="kpi-sub">Total period</div></div>
       <div class="kpi-card"><div class="kpi-label">Reach</div><div class="kpi-value" id="kpi-reach">—</div><div class="kpi-sub">Unique accounts</div></div>
       <div class="kpi-card"><div class="kpi-label">Engagements</div><div class="kpi-value" id="kpi-engage">—</div><div class="kpi-sub">Reactions, comments, shares</div></div>
       <div class="kpi-card"><div class="kpi-label">Video Views</div><div class="kpi-value" id="kpi-video">—</div><div class="kpi-sub">3-second views</div></div>
+      <div class="kpi-card green"><div class="kpi-label">Revenue</div><div class="kpi-value" id="kpi-revenue">—</div><div class="kpi-sub">In-stream ad earnings</div></div>
+      <div class="kpi-card gold"><div class="kpi-label">Earnings / 1K Views</div><div class="kpi-value" id="kpi-rpm">—</div><div class="kpi-sub">Revenue per 1,000 video views</div></div>
     </div>
 
     <!-- Charts -->
@@ -354,27 +194,29 @@
       </div>
     </div>
 
-    <!-- Top Posts -->
+    <!-- Revenue chart -->
+    <div class="chart-card" id="revenue-chart-wrap" style="margin-bottom:20px;display:none;">
+      <h3>Daily Revenue</h3>
+      <div class="chart-wrap"><canvas id="revenueChart"></canvas></div>
+    </div>
+
+    <!-- Posts -->
     <div class="table-card">
       <h3>Recent Posts</h3>
-      <div id="posts-wrap">
-        <div class="empty-state">
-          <div class="spinner"></div>
-          <p>Loading posts…</p>
-        </div>
-      </div>
+      <div id="posts-wrap"><div class="empty-state"><div class="icon">⏳</div><p>Loading posts…</p></div></div>
     </div>
   </div>
 </div>
 
 <script>
 const API = 'https://fb-dashboard-api.onrender.com/api/v1';
-let currentDays = 7;
+let currentSince = null;
+let currentUntil = null;
 let currentPageId = null;
-let lineChart = null;
-let barChart = null;
+let currentPageFans = null;
+let lineChart = null, barChart = null, revenueChart = null;
 
-// ── Utilities ────────────────────────────────────────────────────────────────
+// ── Utilities ─────────────────────────────────────────────────────────────────
 async function apiFetch(path, opts = {}) {
   const r = await fetch(API + path, { credentials: 'include', ...opts });
   if (!r.ok) {
@@ -385,16 +227,20 @@ async function apiFetch(path, opts = {}) {
 }
 
 function fmt(n) {
-  if (n == null) return '—';
+  if (n == null || n === '' || isNaN(n)) return '—';
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
   if (n >= 1_000) return (n / 1_000).toFixed(1) + 'K';
-  return n.toLocaleString();
+  return Number(n).toLocaleString();
+}
+
+function fmtMoney(n) {
+  if (n == null || isNaN(n)) return '—';
+  return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function fmtDate(ts) {
   if (!ts) return '';
-  const d = new Date(ts);
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  return new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
 function sumMetric(values) {
@@ -406,36 +252,59 @@ function showError(msg) {
   bar.textContent = msg;
   bar.classList.add('show');
 }
+function clearError() { document.getElementById('error-bar').classList.remove('show'); }
 
-function clearError() {
-  document.getElementById('error-bar').classList.remove('show');
+const todayStr = () => new Date().toISOString().split('T')[0];
+const daysAgoStr = n => new Date(Date.now() - n * 86400000).toISOString().split('T')[0];
+
+// ── Date Range ─────────────────────────────────────────────────────────────────
+function setPreset(preset, btn) {
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  const today = new Date();
+  const fmt = d => d.toISOString().split('T')[0];
+  let since, until;
+
+  if (preset === '7d')   { until = fmt(today); since = fmt(new Date(Date.now() - 7  * 86400000)); }
+  if (preset === '28d')  { until = fmt(today); since = fmt(new Date(Date.now() - 28 * 86400000)); }
+  if (preset === '90d')  { until = fmt(today); since = fmt(new Date(Date.now() - 90 * 86400000)); }
+  if (preset === 'this_month') {
+    since = fmt(new Date(today.getFullYear(), today.getMonth(), 1));
+    until = fmt(today);
+  }
+  if (preset === 'last_month') {
+    since = fmt(new Date(today.getFullYear(), today.getMonth() - 1, 1));
+    until = fmt(new Date(today.getFullYear(), today.getMonth(), 0));
+  }
+
+  currentSince = since;
+  currentUntil = until;
+  document.getElementById('date-from').value = since;
+  document.getElementById('date-to').value = until;
+  if (currentPageId) loadDashboard();
+}
+
+function applyCustomRange() {
+  const since = document.getElementById('date-from').value;
+  const until = document.getElementById('date-to').value;
+  if (!since || !until) return;
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  currentSince = since;
+  currentUntil = until;
+  if (currentPageId) loadDashboard();
 }
 
 // ── Auth ─────────────────────────────────────────────────────────────────────
-function showLogin() {
-  document.getElementById('login-screen').style.display = 'flex';
-  document.getElementById('app-screen').style.display = 'none';
-}
-
-function showApp() {
-  document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('app-screen').style.display = 'block';
-}
+function showLogin() { document.getElementById('login-screen').style.display = 'flex'; document.getElementById('app-screen').style.display = 'none'; }
+function showApp()   { document.getElementById('login-screen').style.display = 'none'; document.getElementById('app-screen').style.display = 'block'; }
 
 async function checkSession() {
   let user;
-  try {
-    user = await apiFetch('/auth/me');
-  } catch {
-    showLogin();
-    return;
-  }
-
+  try { user = await apiFetch('/auth/me'); } catch { showLogin(); return; }
   document.getElementById('user-name').textContent = user.name || user.email || '';
-  const initial = (user.name || user.email || '?')[0].toUpperCase();
-  document.getElementById('user-initial').textContent = initial;
+  document.getElementById('user-initial').textContent = (user.name || user.email || '?')[0].toUpperCase();
   showApp();
-
   await loadPages();
 }
 
@@ -445,25 +314,27 @@ async function logout() {
 }
 
 // ── Pages ─────────────────────────────────────────────────────────────────────
+let pagesMap = {};
+
 async function loadPages() {
   const sel = document.getElementById('page-select');
   try {
     const pages = await apiFetch('/pages');
     sel.innerHTML = '';
-    if (!pages || pages.length === 0) {
-      sel.innerHTML = '<option value="">No pages found</option>';
-      return;
-    }
+    if (!pages || pages.length === 0) { sel.innerHTML = '<option value="">No pages found</option>'; return; }
+    pagesMap = {};
     pages.forEach(p => {
+      pagesMap[p.id] = p;
       const opt = document.createElement('option');
       opt.value = p.id;
       opt.textContent = `${p.name}${p.fan_count ? ' · ' + fmt(p.fan_count) + ' fans' : ''}`;
       sel.appendChild(opt);
     });
     currentPageId = pages[0].id;
-    await loadDashboard();
+    currentPageFans = pages[0].fan_count;
+    setPreset('28d', document.querySelector('.preset-btn:nth-child(2)'));
   } catch (e) {
-    showError('Could not load your Facebook Pages: ' + e.message);
+    showError('Could not load pages: ' + e.message);
     sel.innerHTML = '<option value="">Error loading pages</option>';
   }
 }
@@ -471,189 +342,126 @@ async function loadPages() {
 function onPageChange() {
   const sel = document.getElementById('page-select');
   currentPageId = sel.value;
+  const page = pagesMap[currentPageId];
+  currentPageFans = page ? page.fan_count : null;
   if (currentPageId) loadDashboard();
 }
 
 // ── Dashboard ─────────────────────────────────────────────────────────────────
-async function setDays(days, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  currentDays = days;
-  if (currentPageId) await loadDashboard();
-}
-
-function dateRange(days) {
-  const until = new Date();
-  const since = new Date(Date.now() - days * 86400000);
-  const fmt = d => d.toISOString().split('T')[0];
-  return { since: fmt(since), until: fmt(until) };
-}
-
 async function loadDashboard() {
-  if (!currentPageId) return;
+  if (!currentPageId || !currentSince || !currentUntil) return;
   clearError();
-  const { since, until } = dateRange(currentDays);
 
-  try {
-    const [stats, posts] = await Promise.allSettled([
-      apiFetch(`/analytics/stats?page_id=${currentPageId}&since=${since}&until=${until}&period=day`),
-      apiFetch(`/analytics/posts?page_id=${currentPageId}&limit=20`),
-    ]);
+  const [stats, posts] = await Promise.allSettled([
+    apiFetch(`/analytics/stats?page_id=${currentPageId}&since=${currentSince}&until=${currentUntil}&period=day`),
+    apiFetch(`/analytics/posts?page_id=${currentPageId}&limit=20`),
+  ]);
 
-    if (stats.status === 'fulfilled') {
-      renderKPIs(stats.value.metrics);
-      renderCharts(stats.value.metrics);
-    } else {
-      showError('Could not load insights: ' + stats.reason.message);
-    }
-
-    if (posts.status === 'fulfilled') {
-      renderPosts(posts.value.items);
-    } else {
-      document.getElementById('posts-wrap').innerHTML = `<div class="empty-state"><div class="icon">📭</div><h3>No posts found</h3><p>${posts.reason.message}</p></div>`;
-    }
-  } catch (e) {
-    showError('Dashboard error: ' + e.message);
+  if (stats.status === 'fulfilled') {
+    renderKPIs(stats.value.metrics);
+    renderCharts(stats.value.metrics);
+  } else {
+    showError('Could not load insights: ' + stats.reason.message);
   }
+
+  if (posts.status === 'fulfilled') renderPosts(posts.value.items);
+  else document.getElementById('posts-wrap').innerHTML = `<div class="empty-state"><div class="icon">📭</div><h3>No posts found</h3><p>${posts.reason.message}</p></div>`;
 }
 
-// ── KPI Cards ─────────────────────────────────────────────────────────────────
+// ── KPIs ─────────────────────────────────────────────────────────────────────
 function renderKPIs(metrics) {
-  const fans = metrics.page_fans || [];
-  const totalFans = fans.length ? fans[fans.length - 1].value : null;
-  const newFans = sumMetric(metrics.page_fan_adds);
-  const impressions = sumMetric(metrics.page_impressions);
-  const reach = sumMetric(metrics.page_impressions_unique);
-  const engage = sumMetric(metrics.page_post_engagements);
-  const video = sumMetric(metrics.page_video_views);
+  // Total fans from page data (always available) or lifetime insights
+  const fansFromPage = currentPageFans;
+  const fansFromInsights = metrics.page_fans;
+  const totalFans = fansFromPage || (fansFromInsights && fansFromInsights.length ? fansFromInsights[fansFromInsights.length - 1].value : null);
 
-  document.getElementById('kpi-fans').textContent = fmt(totalFans);
-  document.getElementById('kpi-new-fans').textContent = fmt(newFans);
-  document.getElementById('kpi-impressions').textContent = fmt(impressions);
-  document.getElementById('kpi-reach').textContent = fmt(reach);
-  document.getElementById('kpi-engage').textContent = fmt(engage);
-  document.getElementById('kpi-video').textContent = fmt(video);
+  const newFans    = sumMetric(metrics.page_fan_adds);
+  const impr       = sumMetric(metrics.page_impressions) || sumMetric(metrics.page_impressions_organic) + sumMetric(metrics.page_impressions_paid);
+  const reach      = sumMetric(metrics.page_impressions_unique);
+  const engage     = sumMetric(metrics.page_post_engagements);
+  const video      = sumMetric(metrics.page_video_views);
+  const revenue    = sumMetric(metrics.page_daily_video_ad_break_earnings);
+  const rpm        = video > 0 && revenue > 0 ? (revenue / video) * 1000 : null;
+
+  document.getElementById('kpi-fans').textContent        = fmt(totalFans);
+  document.getElementById('kpi-new-fans').textContent    = newFans > 0 ? fmt(newFans) : '—';
+  document.getElementById('kpi-impressions').textContent = impr > 0 ? fmt(impr) : '—';
+  document.getElementById('kpi-reach').textContent       = reach > 0 ? fmt(reach) : '—';
+  document.getElementById('kpi-engage').textContent      = engage > 0 ? fmt(engage) : '—';
+  document.getElementById('kpi-video').textContent       = video > 0 ? fmt(video) : '—';
+  document.getElementById('kpi-revenue').textContent     = revenue > 0 ? fmtMoney(revenue) : '—';
+  document.getElementById('kpi-rpm').textContent         = rpm != null ? fmtMoney(rpm) : '—';
 }
 
 // ── Charts ─────────────────────────────────────────────────────────────────────
 function renderCharts(metrics) {
-  const impressionData = metrics.page_impressions || [];
-  const reachData = metrics.page_impressions_unique || [];
-  const engageData = metrics.page_post_engagements || [];
+  const impData    = metrics.page_impressions || [];
+  const reachData  = metrics.page_impressions_unique || [];
+  const engData    = metrics.page_post_engagements || [];
+  const revData    = metrics.page_daily_video_ad_break_earnings || [];
 
-  const labels = impressionData.map(v => fmtDate(v.end_time));
-  const impValues = impressionData.map(v => v.value || 0);
-  const reachValues = reachData.map(v => v.value || 0);
-  const engageValues = engageData.map(v => v.value || 0);
+  const labels     = impData.length ? impData.map(v => fmtDate(v.end_time))
+                   : reachData.length ? reachData.map(v => fmtDate(v.end_time))
+                   : engData.map(v => fmtDate(v.end_time));
 
-  // Line chart
+  const engLabels  = engData.map(v => fmtDate(v.end_time));
+
   if (lineChart) lineChart.destroy();
-  const lctx = document.getElementById('lineChart').getContext('2d');
-  lineChart = new Chart(lctx, {
+  lineChart = new Chart(document.getElementById('lineChart').getContext('2d'), {
     type: 'line',
     data: {
       labels,
       datasets: [
-        {
-          label: 'Impressions',
-          data: impValues,
-          borderColor: '#1877F2',
-          backgroundColor: 'rgba(24,119,242,0.08)',
-          tension: 0.35,
-          fill: true,
-          pointRadius: 3,
-        },
-        {
-          label: 'Reach',
-          data: reachValues,
-          borderColor: '#42b72a',
-          backgroundColor: 'rgba(66,183,42,0.07)',
-          tension: 0.35,
-          fill: true,
-          pointRadius: 3,
-        },
+        { label: 'Impressions', data: impData.map(v => v.value || 0), borderColor: '#1877F2', backgroundColor: 'rgba(24,119,242,0.08)', tension: 0.35, fill: true, pointRadius: 2 },
+        { label: 'Reach',       data: reachData.map(v => v.value || 0), borderColor: '#42b72a', backgroundColor: 'rgba(66,183,42,0.07)', tension: 0.35, fill: true, pointRadius: 2 },
       ],
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { position: 'top', labels: { boxWidth: 12, font: { size: 12 } } } },
-      scales: {
-        x: { ticks: { maxTicksLimit: 8, font: { size: 11 } }, grid: { display: false } },
-        y: { ticks: { callback: v => fmt(v), font: { size: 11 } }, grid: { color: '#f0f2f5' } },
-      },
-    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { boxWidth: 12, font: { size: 12 } } } }, scales: { x: { ticks: { maxTicksLimit: 10, font: { size: 11 } }, grid: { display: false } }, y: { ticks: { callback: v => fmt(v), font: { size: 11 } }, grid: { color: '#f0f2f5' } } } },
   });
 
-  // Bar chart
   if (barChart) barChart.destroy();
-  const bctx = document.getElementById('barChart').getContext('2d');
-  barChart = new Chart(bctx, {
+  barChart = new Chart(document.getElementById('barChart').getContext('2d'), {
     type: 'bar',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Engagements',
-        data: engageValues,
-        backgroundColor: 'rgba(24,119,242,0.7)',
-        borderRadius: 4,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { maxTicksLimit: 7, font: { size: 11 } }, grid: { display: false } },
-        y: { ticks: { callback: v => fmt(v), font: { size: 11 } }, grid: { color: '#f0f2f5' } },
-      },
-    },
+    data: { labels: engLabels, datasets: [{ label: 'Engagements', data: engData.map(v => v.value || 0), backgroundColor: 'rgba(24,119,242,0.7)', borderRadius: 4 }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 10, font: { size: 11 } }, grid: { display: false } }, y: { ticks: { callback: v => fmt(v), font: { size: 11 } }, grid: { color: '#f0f2f5' } } } },
   });
+
+  const revWrap = document.getElementById('revenue-chart-wrap');
+  if (revData.length > 0 && revData.some(v => v.value > 0)) {
+    revWrap.style.display = 'block';
+    if (revenueChart) revenueChart.destroy();
+    revenueChart = new Chart(document.getElementById('revenueChart').getContext('2d'), {
+      type: 'bar',
+      data: { labels: revData.map(v => fmtDate(v.end_time)), datasets: [{ label: 'Revenue ($)', data: revData.map(v => v.value || 0), backgroundColor: 'rgba(245,158,11,0.75)', borderRadius: 4 }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 10, font: { size: 11 } }, grid: { display: false } }, y: { ticks: { callback: v => '$' + v.toFixed(2), font: { size: 11 } }, grid: { color: '#f0f2f5' } } } },
+    });
+  } else {
+    revWrap.style.display = 'none';
+  }
 }
 
-// ── Posts Table ───────────────────────────────────────────────────────────────
+// ── Posts ─────────────────────────────────────────────────────────────────────
 function renderPosts(posts) {
   const wrap = document.getElementById('posts-wrap');
   if (!posts || posts.length === 0) {
-    wrap.innerHTML = `<div class="empty-state"><div class="icon">📭</div><h3>No posts yet</h3><p>This page has no recent posts.</p></div>`;
+    wrap.innerHTML = `<div class="empty-state"><div class="icon">📭</div><h3>No posts yet</h3><p>No recent posts found for this page.</p></div>`;
     return;
   }
-
   const rows = posts.map(p => {
-    const msg = (p.message || p.story || '(No text)').slice(0, 120);
+    const msg  = (p.message || p.story || '(No text)').slice(0, 120);
     const date = p.created_time ? new Date(p.created_time).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
-    const insights = p.insights || {};
-    const reach = fmt(insights.post_impressions_unique);
-    const engage = fmt(insights.post_engaged_users);
-    const likes = fmt(insights.post_reactions_like_total);
+    const ins  = p.insights || {};
     const type = (p.attachments?.data?.[0]?.media_type || 'post').replace(/_/g, ' ');
-    return `
-      <tr>
-        <td><div class="post-msg" title="${msg.replace(/"/g, '&quot;')}">${msg}</div>
-          ${p.permalink_url ? `<a href="${p.permalink_url}" target="_blank" class="post-link">View post →</a>` : ''}
-        </td>
-        <td><span class="badge">${type}</span></td>
-        <td>${date}</td>
-        <td>${reach}</td>
-        <td>${engage}</td>
-        <td>${likes}</td>
-      </tr>`;
+    return `<tr>
+      <td><div class="post-msg" title="${msg.replace(/"/g,'&quot;')}">${msg}</div>${p.permalink_url ? `<a href="${p.permalink_url}" target="_blank" class="post-link">View →</a>` : ''}</td>
+      <td><span class="badge">${type}</span></td>
+      <td>${date}</td>
+      <td>${fmt(ins.post_impressions_unique)}</td>
+      <td>${fmt(ins.post_engaged_users)}</td>
+      <td>${fmt(ins.post_reactions_like_total)}</td>
+    </tr>`;
   }).join('');
-
-  wrap.innerHTML = `
-    <table class="posts-table">
-      <thead>
-        <tr>
-          <th>Post</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Reach</th>
-          <th>Engaged</th>
-          <th>Likes</th>
-        </tr>
-      </thead>
-      <tbody>${rows}</tbody>
-    </table>`;
+  wrap.innerHTML = `<table class="posts-table"><thead><tr><th>Post</th><th>Type</th><th>Date</th><th>Reach</th><th>Engaged</th><th>Likes</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
