@@ -7,105 +7,111 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --fb-blue: #1877F2;
-      --fb-dark: #0d47a1;
-      --bg: #f0f2f5;
-      --card: #ffffff;
-      --text: #050505;
-      --sub: #65676b;
-      --border: #dce1e7;
-      --green: #42b72a;
-      --radius: 8px;
+      --fb-blue:#1877F2; --fb-dark:#0d47a1; --bg:#f0f2f5; --card:#fff;
+      --text:#050505; --sub:#65676b; --border:#dce1e7;
+      --green:#42b72a; --red:#e41e3f; --gold:#f59e0b; --radius:8px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 
     /* LOGIN */
-    #login-screen { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(160deg, var(--fb-blue) 0%, #0d47a1 100%); }
-    .login-card { background: var(--card); border-radius: 12px; padding: 40px 48px; max-width: 400px; width: 90%; text-align: center; box-shadow: 0 8px 40px rgba(0,0,0,0.18); }
-    .login-logo { font-size: 48px; margin-bottom: 8px; }
-    .login-card h1 { font-size: 22px; font-weight: 700; color: var(--fb-blue); margin-bottom: 6px; }
-    .login-card p { color: var(--sub); font-size: 14px; margin-bottom: 28px; }
-    .btn-fb { display: inline-flex; align-items: center; gap: 10px; background: var(--fb-blue); color: #fff; border: none; border-radius: 8px; padding: 14px 28px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; justify-content: center; transition: background 0.15s; text-decoration: none; }
-    .btn-fb:hover { background: var(--fb-dark); }
-    .btn-fb svg { width: 22px; height: 22px; fill: #fff; }
+    #login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--fb-blue) 0%,#0d47a1 100%);}
+    .login-card{background:#fff;border-radius:12px;padding:40px 48px;max-width:400px;width:90%;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.18);}
+    .login-logo{font-size:48px;margin-bottom:8px;}
+    .login-card h1{font-size:22px;font-weight:700;color:var(--fb-blue);margin-bottom:6px;}
+    .login-card p{color:var(--sub);font-size:14px;margin-bottom:28px;}
+    .btn-fb{display:inline-flex;align-items:center;gap:10px;background:var(--fb-blue);color:#fff;border:none;border-radius:8px;padding:14px 28px;font-size:16px;font-weight:600;cursor:pointer;width:100%;justify-content:center;text-decoration:none;transition:background .15s;}
+    .btn-fb:hover{background:var(--fb-dark);}
+    .btn-fb svg{width:22px;height:22px;fill:#fff;}
 
-    /* APP SHELL */
-    #app-screen { display: none; min-height: 100vh; }
-
-    /* TOPBAR */
-    .topbar { background: var(--fb-blue); color: #fff; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-    .topbar-left { display: flex; align-items: center; gap: 12px; }
-    .topbar-logo { font-size: 22px; font-weight: 800; }
-    .topbar-title { font-size: 16px; font-weight: 600; opacity: 0.9; }
-    .topbar-right { display: flex; align-items: center; gap: 16px; }
-    .user-badge { display: flex; align-items: center; gap: 8px; font-size: 14px; }
-    .user-avatar { width: 32px; height: 32px; background: rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
-    .btn-logout { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 14px; border-radius: 6px; font-size: 13px; cursor: pointer; transition: background 0.15s; }
-    .btn-logout:hover { background: rgba(255,255,255,0.25); }
-
-    /* MAIN */
-    .main-wrap { max-width: 1280px; margin: 0 auto; padding: 24px 20px; }
+    /* APP */
+    #app-screen{display:none;min-height:100vh;}
+    .topbar{background:var(--fb-blue);color:#fff;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+    .topbar-left{display:flex;align-items:center;gap:12px;}
+    .topbar-logo{font-size:22px;font-weight:800;}
+    .topbar-title{font-size:16px;font-weight:600;opacity:.9;}
+    .topbar-right{display:flex;align-items:center;gap:16px;}
+    .user-badge{display:flex;align-items:center;gap:8px;font-size:14px;}
+    .user-avatar{width:32px;height:32px;background:rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+    .btn-logout{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;}
+    .btn-logout:hover{background:rgba(255,255,255,.25);}
+    .main-wrap{max-width:1280px;margin:0 auto;padding:24px 20px;}
 
     /* PAGE SELECTOR */
-    .page-selector-wrap { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .page-selector-wrap label { font-weight: 600; font-size: 14px; color: var(--sub); white-space: nowrap; }
-    .page-select { flex: 1; min-width: 200px; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 15px; background: #fff; cursor: pointer; outline: none; color: var(--text); }
-    .page-select:focus { border-color: var(--fb-blue); }
+    .page-selector-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+    .page-selector-wrap label{font-weight:600;font-size:14px;color:var(--sub);white-space:nowrap;}
+    .page-select{flex:1;min-width:200px;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:15px;background:#fff;cursor:pointer;outline:none;}
+    .page-select:focus{border-color:var(--fb-blue);}
 
     /* DATE RANGE */
-    .date-range-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 20px; margin-bottom: 20px; }
-    .date-range-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .preset-group { display: flex; border-radius: 8px; overflow: hidden; border: 1.5px solid var(--border); background: #fff; }
-    .preset-btn { background: transparent; border: none; border-right: 1px solid var(--border); padding: 8px 14px; font-size: 13px; font-weight: 600; color: var(--sub); cursor: pointer; transition: background 0.12s, color 0.12s; white-space: nowrap; }
-    .preset-btn:last-child { border-right: none; }
-    .preset-btn.active { background: var(--fb-blue); color: #fff; }
-    .preset-btn:hover:not(.active) { background: var(--bg); }
-    .date-sep { color: var(--sub); font-size: 13px; font-weight: 600; }
-    .date-inputs { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .date-label { font-size: 12px; font-weight: 600; color: var(--sub); }
-    .date-input { padding: 8px 12px; border: 1.5px solid var(--border); border-radius: 6px; font-size: 13px; color: var(--text); outline: none; cursor: pointer; }
-    .date-input:focus { border-color: var(--fb-blue); }
-    .btn-apply { background: var(--fb-blue); color: #fff; border: none; border-radius: 6px; padding: 8px 16px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
-    .btn-apply:hover { background: var(--fb-dark); }
+    .date-range-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 20px;margin-bottom:20px;}
+    .date-range-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+    .preset-group{display:flex;border-radius:8px;overflow:hidden;border:1.5px solid var(--border);}
+    .preset-btn{background:#fff;border:none;border-right:1px solid var(--border);padding:8px 13px;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;white-space:nowrap;}
+    .preset-btn:last-child{border-right:none;}
+    .preset-btn.active{background:var(--fb-blue);color:#fff;}
+    .preset-btn:hover:not(.active){background:var(--bg);}
+    .date-inputs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .date-label{font-size:12px;font-weight:600;color:var(--sub);}
+    .date-input{padding:8px 12px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;outline:none;}
+    .date-input:focus{border-color:var(--fb-blue);}
+    .btn-apply{background:var(--fb-blue);color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;}
+    .btn-apply:hover{background:var(--fb-dark);}
 
     /* KPI GRID */
-    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 20px; }
-    .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; position: relative; overflow: hidden; }
-    .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--fb-blue); }
-    .kpi-card.green::before { background: var(--green); }
-    .kpi-card.gold::before { background: #f59e0b; }
-    .kpi-label { font-size: 11px; font-weight: 700; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-    .kpi-value { font-size: 26px; font-weight: 800; color: var(--text); line-height: 1; }
-    .kpi-sub { font-size: 11px; color: var(--sub); margin-top: 5px; }
+    .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px;margin-bottom:20px;}
+    .kpi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;position:relative;overflow:hidden;}
+    .kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--fb-blue);}
+    .kpi-card.green::before{background:var(--green);}
+    .kpi-card.gold::before{background:var(--gold);}
+    .kpi-label{font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+    .kpi-value{font-size:24px;font-weight:800;color:var(--text);line-height:1;}
+    .kpi-sub{font-size:11px;color:var(--sub);margin-top:4px;}
+    .kpi-delta{font-size:12px;font-weight:700;margin-top:6px;}
+    .kpi-delta .up{color:var(--green);}
+    .kpi-delta .dn{color:var(--red);}
+    .kpi-avg{font-size:11px;color:var(--sub);margin-top:2px;}
+
+    /* PROJECTIONS */
+    .proj-card{background:linear-gradient(135deg,#e8f4fd 0%,#f0fff4 100%);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:20px;}
+    .proj-card h3{font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .proj-progress-wrap{margin-bottom:16px;}
+    .proj-progress-label{font-size:12px;color:var(--sub);margin-bottom:6px;}
+    .proj-progress-track{background:#dce1e7;border-radius:6px;height:8px;overflow:hidden;}
+    .proj-progress-fill{height:100%;background:linear-gradient(90deg,var(--fb-blue),var(--green));border-radius:6px;transition:width .4s;}
+    .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;}
+    .proj-item .proj-label{font-size:12px;font-weight:600;color:var(--sub);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;}
+    .proj-item .proj-value{font-size:22px;font-weight:800;color:var(--text);}
+    .proj-item .proj-pace{font-size:11px;color:var(--sub);margin-top:2px;}
 
     /* CHARTS */
-    .charts-row { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 20px; }
-    @media (max-width: 768px) { .charts-row { grid-template-columns: 1fr; } }
-    .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
-    .chart-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; color: var(--text); }
-    .chart-wrap { position: relative; height: 220px; }
+    .charts-row{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:20px;}
+    @media(max-width:768px){.charts-row{grid-template-columns:1fr;}}
+    .chart-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+    .chart-card h3{font-size:14px;font-weight:700;margin-bottom:14px;}
+    .chart-wrap{position:relative;height:220px;}
 
-    /* POSTS TABLE */
-    .table-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; }
-    .table-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; }
-    .posts-table { width: 100%; border-collapse: collapse; }
-    .posts-table th { text-align: left; font-size: 11px; font-weight: 700; color: var(--sub); text-transform: uppercase; letter-spacing: 0.4px; padding: 8px 12px; border-bottom: 2px solid var(--border); }
-    .posts-table td { padding: 11px 12px; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: top; }
-    .posts-table tr:last-child td { border-bottom: none; }
-    .posts-table tr:hover td { background: var(--bg); }
-    .post-msg { max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .post-link { color: var(--fb-blue); text-decoration: none; font-size: 11px; }
-    .post-link:hover { text-decoration: underline; }
-    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background: #e7f3ff; color: var(--fb-blue); }
+    /* TABLES */
+    .table-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px;}
+    .table-card h3{font-size:14px;font-weight:700;margin-bottom:14px;}
+    .data-table{width:100%;border-collapse:collapse;}
+    .data-table th{text-align:left;font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.4px;padding:8px 12px;border-bottom:2px solid var(--border);}
+    .data-table td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;}
+    .data-table tr:last-child td{border-bottom:none;}
+    .data-table tr:hover td{background:var(--bg);}
+    .post-msg{max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .post-link{color:var(--fb-blue);text-decoration:none;font-size:11px;}
+    .post-link:hover{text-decoration:underline;}
+    .badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;background:#e7f3ff;color:var(--fb-blue);}
+    .badge.video{background:#fef3c7;color:#92400e;}
+    .num{text-align:right;}
 
     /* STATES */
-    .empty-state { text-align: center; padding: 40px 20px; color: var(--sub); }
-    .empty-state .icon { font-size: 36px; margin-bottom: 10px; }
-    .empty-state h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
-    .empty-state p { font-size: 13px; }
-    .error-bar { background: #fff3cd; border: 1px solid #ffc107; color: #856404; padding: 10px 16px; border-radius: var(--radius); font-size: 13px; margin-bottom: 16px; display: none; }
-    .error-bar.show { display: block; }
+    .empty-state{text-align:center;padding:36px 20px;color:var(--sub);}
+    .empty-state .icon{font-size:32px;margin-bottom:10px;}
+    .empty-state p{font-size:13px;}
+    .error-bar{background:#fff3cd;border:1px solid #ffc107;color:#856404;padding:10px 16px;border-radius:var(--radius);font-size:13px;margin-bottom:16px;display:none;}
+    .error-bar.show{display:block;}
   </style>
 </head>
 <body>
@@ -142,7 +148,6 @@
   <div class="main-wrap">
     <div class="error-bar" id="error-bar"></div>
 
-    <!-- Page selector -->
     <div class="page-selector-wrap">
       <label>Page</label>
       <select class="page-select" id="page-select" onchange="onPageChange()">
@@ -150,7 +155,6 @@
       </select>
     </div>
 
-    <!-- Date range -->
     <div class="date-range-card">
       <div class="date-range-row">
         <div class="preset-group">
@@ -162,30 +166,97 @@
         </div>
         <div class="date-inputs">
           <span class="date-label">From</span>
-          <input type="date" class="date-input" id="date-from" />
+          <input type="date" class="date-input" id="date-from"/>
           <span class="date-label">To</span>
-          <input type="date" class="date-input" id="date-to" />
+          <input type="date" class="date-input" id="date-to"/>
           <button class="btn-apply" onclick="applyCustomRange()">Apply</button>
         </div>
       </div>
     </div>
 
-    <!-- KPI cards -->
+    <!-- KPI Cards -->
     <div class="kpi-grid">
-      <div class="kpi-card"><div class="kpi-label">Total Fans</div><div class="kpi-value" id="kpi-fans">—</div><div class="kpi-sub">Page followers</div></div>
-      <div class="kpi-card"><div class="kpi-label">New Fans</div><div class="kpi-value" id="kpi-new-fans">—</div><div class="kpi-sub">In period</div></div>
-      <div class="kpi-card"><div class="kpi-label">Impressions</div><div class="kpi-value" id="kpi-impressions">—</div><div class="kpi-sub">Total period</div></div>
-      <div class="kpi-card"><div class="kpi-label">Reach</div><div class="kpi-value" id="kpi-reach">—</div><div class="kpi-sub">Unique accounts</div></div>
-      <div class="kpi-card"><div class="kpi-label">Engagements</div><div class="kpi-value" id="kpi-engage">—</div><div class="kpi-sub">Reactions, comments, shares</div></div>
-      <div class="kpi-card"><div class="kpi-label">Video Views</div><div class="kpi-value" id="kpi-video">—</div><div class="kpi-sub">3-second views</div></div>
-      <div class="kpi-card green"><div class="kpi-label">Revenue</div><div class="kpi-value" id="kpi-revenue">—</div><div class="kpi-sub">In-stream ad earnings</div></div>
-      <div class="kpi-card gold"><div class="kpi-label">Earnings / 1K Views</div><div class="kpi-value" id="kpi-rpm">—</div><div class="kpi-sub">Revenue per 1,000 video views</div></div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Fans</div>
+        <div class="kpi-value" id="kpi-fans">—</div>
+        <div class="kpi-sub">Page followers</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">New Fans</div>
+        <div class="kpi-value" id="kpi-new-fans">—</div>
+        <div class="kpi-sub">In period</div>
+        <div class="kpi-delta" id="kpi-new-fans-delta"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Impressions</div>
+        <div class="kpi-value" id="kpi-impressions">—</div>
+        <div class="kpi-sub">Total period</div>
+        <div class="kpi-delta" id="kpi-impressions-delta"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Reach</div>
+        <div class="kpi-value" id="kpi-reach">—</div>
+        <div class="kpi-sub">Unique accounts</div>
+        <div class="kpi-delta" id="kpi-reach-delta"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Engagements</div>
+        <div class="kpi-value" id="kpi-engage">—</div>
+        <div class="kpi-sub">Reactions, comments, shares</div>
+        <div class="kpi-delta" id="kpi-engage-delta"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Video Views</div>
+        <div class="kpi-value" id="kpi-video">—</div>
+        <div class="kpi-sub">3-second views</div>
+        <div class="kpi-delta" id="kpi-video-delta"></div>
+        <div class="kpi-avg" id="kpi-video-avg"></div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Revenue</div>
+        <div class="kpi-value" id="kpi-revenue">—</div>
+        <div class="kpi-sub">In-stream ad earnings</div>
+        <div class="kpi-delta" id="kpi-revenue-delta"></div>
+        <div class="kpi-avg" id="kpi-revenue-avg"></div>
+      </div>
+      <div class="kpi-card gold">
+        <div class="kpi-label">Earnings / 1K Views</div>
+        <div class="kpi-value" id="kpi-rpm">—</div>
+        <div class="kpi-sub">Revenue per 1,000 video views</div>
+        <div class="kpi-delta" id="kpi-rpm-delta"></div>
+      </div>
+    </div>
+
+    <!-- Month-End Projections -->
+    <div class="proj-card" id="projections-wrap" style="display:none;">
+      <h3>📈 Month-End Projections — <span id="proj-month"></span></h3>
+      <div class="proj-progress-wrap">
+        <div class="proj-progress-label" id="proj-days-label"></div>
+        <div class="proj-progress-track"><div class="proj-progress-fill" id="proj-bar" style="width:0%"></div></div>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-item">
+          <div class="proj-label">Projected Views</div>
+          <div class="proj-value" id="proj-views">—</div>
+          <div class="proj-pace" id="proj-views-pace"></div>
+        </div>
+        <div class="proj-item">
+          <div class="proj-label">Projected Revenue</div>
+          <div class="proj-value" id="proj-revenue">—</div>
+          <div class="proj-pace" id="proj-revenue-pace"></div>
+        </div>
+        <div class="proj-item">
+          <div class="proj-label">Projected RPM</div>
+          <div class="proj-value" id="proj-rpm">—</div>
+          <div class="proj-pace">Based on current pace</div>
+        </div>
+      </div>
     </div>
 
     <!-- Charts -->
     <div class="charts-row">
       <div class="chart-card">
-        <h3>Daily Impressions &amp; Reach</h3>
+        <h3>Daily Video Views</h3>
         <div class="chart-wrap"><canvas id="lineChart"></canvas></div>
       </div>
       <div class="chart-card">
@@ -194,278 +265,346 @@
       </div>
     </div>
 
-    <!-- Revenue chart -->
     <div class="chart-card" id="revenue-chart-wrap" style="margin-bottom:20px;display:none;">
       <h3>Daily Revenue</h3>
       <div class="chart-wrap"><canvas id="revenueChart"></canvas></div>
     </div>
 
-    <!-- Posts -->
+    <!-- Reels & Video Performance -->
+    <div class="table-card" id="reels-wrap" style="display:none;">
+      <h3>🎬 Reels & Video Performance</h3>
+      <div id="reels-table-wrap"></div>
+    </div>
+
+    <!-- Recent Posts -->
     <div class="table-card">
       <h3>Recent Posts</h3>
-      <div id="posts-wrap"><div class="empty-state"><div class="icon">⏳</div><p>Loading posts…</p></div></div>
+      <div id="posts-wrap"><div class="empty-state"><div class="icon">⏳</div><p>Loading…</p></div></div>
     </div>
   </div>
 </div>
 
 <script>
 const API = 'https://fb-dashboard-api.onrender.com/api/v1';
-let currentSince = null;
-let currentUntil = null;
-let currentPageId = null;
-let currentPageFans = null;
+let currentSince = null, currentUntil = null, currentPageId = null, currentPageFans = null;
 let lineChart = null, barChart = null, revenueChart = null;
 
-// ── Utilities ─────────────────────────────────────────────────────────────────
-async function apiFetch(path, opts = {}) {
-  const r = await fetch(API + path, { credentials: 'include', ...opts });
-  if (!r.ok) {
-    const body = await r.json().catch(() => ({}));
-    throw new Error(body.detail || `HTTP ${r.status}`);
-  }
+// ── Utils ────────────────────────────────────────────────────────────────────
+async function apiFetch(path, opts={}) {
+  const r = await fetch(API+path,{credentials:'include',...opts});
+  if(!r.ok){const b=await r.json().catch(()=>({}));throw new Error(b.detail||`HTTP ${r.status}`);}
   return r.json();
 }
 
-function fmt(n) {
-  if (n == null || n === '' || isNaN(n)) return '—';
-  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
-  if (n >= 1_000) return (n / 1_000).toFixed(1) + 'K';
+function fmt(n){
+  if(n==null||isNaN(n))return'—';
+  if(n>=1e6)return(n/1e6).toFixed(1)+'M';
+  if(n>=1e3)return(n/1e3).toFixed(1)+'K';
   return Number(n).toLocaleString();
 }
+function fmtMoney(n){
+  if(n==null||isNaN(n)||n===0)return'—';
+  return'$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+function fmtDate(ts){
+  if(!ts)return'';
+  return new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+}
+function sumMetric(vals){return(vals||[]).reduce((a,v)=>a+(v.value||0),0);}
 
-function fmtMoney(n) {
-  if (n == null || isNaN(n)) return '—';
-  return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+function deltaBadge(curr,prev){
+  if(!prev||prev===0)return'';
+  const pct=(curr-prev)/prev*100;
+  const cls=pct>=0?'up':'dn';
+  const arrow=pct>=0?'▲':'▼';
+  return`<span class="${cls}">${arrow} ${Math.abs(pct).toFixed(1)}% vs prev</span>`;
 }
 
-function fmtDate(ts) {
-  if (!ts) return '';
-  return new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-}
-
-function sumMetric(values) {
-  return (values || []).reduce((a, v) => a + (v.value || 0), 0);
-}
-
-function showError(msg) {
-  const bar = document.getElementById('error-bar');
-  bar.textContent = msg;
-  bar.classList.add('show');
-}
-function clearError() { document.getElementById('error-bar').classList.remove('show'); }
-
-const todayStr = () => new Date().toISOString().split('T')[0];
-const daysAgoStr = n => new Date(Date.now() - n * 86400000).toISOString().split('T')[0];
-
-// ── Date Range ─────────────────────────────────────────────────────────────────
-function setPreset(preset, btn) {
-  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-
-  const today = new Date();
-  const fmt = d => d.toISOString().split('T')[0];
-  let since, until;
-
-  if (preset === '7d')   { until = fmt(today); since = fmt(new Date(Date.now() - 7  * 86400000)); }
-  if (preset === '28d')  { until = fmt(today); since = fmt(new Date(Date.now() - 28 * 86400000)); }
-  if (preset === '90d')  { until = fmt(today); since = fmt(new Date(Date.now() - 90 * 86400000)); }
-  if (preset === 'this_month') {
-    since = fmt(new Date(today.getFullYear(), today.getMonth(), 1));
-    until = fmt(today);
-  }
-  if (preset === 'last_month') {
-    since = fmt(new Date(today.getFullYear(), today.getMonth() - 1, 1));
-    until = fmt(new Date(today.getFullYear(), today.getMonth(), 0));
-  }
-
-  currentSince = since;
-  currentUntil = until;
-  document.getElementById('date-from').value = since;
-  document.getElementById('date-to').value = until;
-  if (currentPageId) loadDashboard();
-}
-
-function applyCustomRange() {
-  const since = document.getElementById('date-from').value;
-  const until = document.getElementById('date-to').value;
-  if (!since || !until) return;
-  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-  currentSince = since;
-  currentUntil = until;
-  if (currentPageId) loadDashboard();
-}
+function showError(msg){const b=document.getElementById('error-bar');b.textContent=msg;b.classList.add('show');}
+function clearError(){document.getElementById('error-bar').classList.remove('show');}
 
 // ── Auth ─────────────────────────────────────────────────────────────────────
-function showLogin() { document.getElementById('login-screen').style.display = 'flex'; document.getElementById('app-screen').style.display = 'none'; }
-function showApp()   { document.getElementById('login-screen').style.display = 'none'; document.getElementById('app-screen').style.display = 'block'; }
+function showLogin(){document.getElementById('login-screen').style.display='flex';document.getElementById('app-screen').style.display='none';}
+function showApp(){document.getElementById('login-screen').style.display='none';document.getElementById('app-screen').style.display='block';}
 
-async function checkSession() {
+async function checkSession(){
   let user;
-  try { user = await apiFetch('/auth/me'); } catch { showLogin(); return; }
-  document.getElementById('user-name').textContent = user.name || user.email || '';
-  document.getElementById('user-initial').textContent = (user.name || user.email || '?')[0].toUpperCase();
+  try{user=await apiFetch('/auth/me');}catch{showLogin();return;}
+  document.getElementById('user-name').textContent=user.name||user.email||'';
+  document.getElementById('user-initial').textContent=(user.name||user.email||'?')[0].toUpperCase();
   showApp();
   await loadPages();
 }
+async function logout(){try{await apiFetch('/auth/logout',{method:'POST'});}catch{}showLogin();}
 
-async function logout() {
-  try { await apiFetch('/auth/logout', { method: 'POST' }); } catch {}
-  showLogin();
-}
-
-// ── Pages ─────────────────────────────────────────────────────────────────────
-let pagesMap = {};
-
-async function loadPages() {
-  const sel = document.getElementById('page-select');
-  try {
-    const pages = await apiFetch('/pages');
-    sel.innerHTML = '';
-    if (!pages || pages.length === 0) { sel.innerHTML = '<option value="">No pages found</option>'; return; }
-    pagesMap = {};
-    pages.forEach(p => {
-      pagesMap[p.id] = p;
-      const opt = document.createElement('option');
-      opt.value = p.id;
-      opt.textContent = `${p.name}${p.fan_count ? ' · ' + fmt(p.fan_count) + ' fans' : ''}`;
-      sel.appendChild(opt);
+// ── Pages ────────────────────────────────────────────────────────────────────
+let pagesMap={};
+async function loadPages(){
+  const sel=document.getElementById('page-select');
+  try{
+    const pages=await apiFetch('/pages');
+    sel.innerHTML='';
+    if(!pages||!pages.length){sel.innerHTML='<option value="">No pages found</option>';return;}
+    pagesMap={};
+    pages.forEach(p=>{
+      pagesMap[p.id]=p;
+      const o=document.createElement('option');
+      o.value=p.id;
+      o.textContent=`${p.name}${p.fan_count?' · '+fmt(p.fan_count)+' fans':''}`;
+      sel.appendChild(o);
     });
-    currentPageId = pages[0].id;
-    currentPageFans = pages[0].fan_count;
-    setPreset('28d', document.querySelector('.preset-btn:nth-child(2)'));
-  } catch (e) {
-    showError('Could not load pages: ' + e.message);
-    sel.innerHTML = '<option value="">Error loading pages</option>';
-  }
+    currentPageId=pages[0].id;
+    currentPageFans=pages[0].fan_count;
+    setPreset('this_month',document.querySelector('.preset-btn:nth-child(4)'));
+  }catch(e){showError('Could not load pages: '+e.message);sel.innerHTML='<option value="">Error</option>';}
+}
+function onPageChange(){
+  const sel=document.getElementById('page-select');
+  currentPageId=sel.value;
+  const p=pagesMap[currentPageId];
+  currentPageFans=p?p.fan_count:null;
+  if(currentPageId)loadDashboard();
 }
 
-function onPageChange() {
-  const sel = document.getElementById('page-select');
-  currentPageId = sel.value;
-  const page = pagesMap[currentPageId];
-  currentPageFans = page ? page.fan_count : null;
-  if (currentPageId) loadDashboard();
+// ── Date Range ────────────────────────────────────────────────────────────────
+function setPreset(preset,btn){
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  const today=new Date();
+  const f=d=>d.toISOString().split('T')[0];
+  let since,until;
+  if(preset==='7d') {until=f(today);since=f(new Date(Date.now()-7*86400000));}
+  if(preset==='28d'){until=f(today);since=f(new Date(Date.now()-28*86400000));}
+  if(preset==='90d'){until=f(today);since=f(new Date(Date.now()-90*86400000));}
+  if(preset==='this_month'){since=f(new Date(today.getFullYear(),today.getMonth(),1));until=f(today);}
+  if(preset==='last_month'){since=f(new Date(today.getFullYear(),today.getMonth()-1,1));until=f(new Date(today.getFullYear(),today.getMonth(),0));}
+  currentSince=since;currentUntil=until;
+  document.getElementById('date-from').value=since;
+  document.getElementById('date-to').value=until;
+  if(currentPageId)loadDashboard();
+}
+function applyCustomRange(){
+  const since=document.getElementById('date-from').value;
+  const until=document.getElementById('date-to').value;
+  if(!since||!until)return;
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+  currentSince=since;currentUntil=until;
+  if(currentPageId)loadDashboard();
 }
 
-// ── Dashboard ─────────────────────────────────────────────────────────────────
-async function loadDashboard() {
-  if (!currentPageId || !currentSince || !currentUntil) return;
+function getPrevPeriod(){
+  const since=new Date(currentSince),until=new Date(currentUntil);
+  const dur=Math.round((until-since)/86400000)+1;
+  const prevUntil=new Date(since-86400000);
+  const prevSince=new Date(+prevUntil-(dur-1)*86400000);
+  const f=d=>d.toISOString().split('T')[0];
+  return{since:f(prevSince),until:f(prevUntil)};
+}
+
+// ── Dashboard ────────────────────────────────────────────────────────────────
+async function loadDashboard(){
+  if(!currentPageId||!currentSince||!currentUntil)return;
   clearError();
+  const prev=getPrevPeriod();
+  const yr12ago=new Date(Date.now()-365*86400000).toISOString().split('T')[0];
+  const today=new Date().toISOString().split('T')[0];
 
-  const [stats, posts] = await Promise.allSettled([
+  const [stats,prevStats,monthly12,posts]=await Promise.allSettled([
     apiFetch(`/analytics/stats?page_id=${currentPageId}&since=${currentSince}&until=${currentUntil}&period=day`),
-    apiFetch(`/analytics/posts?page_id=${currentPageId}&limit=20`),
+    apiFetch(`/analytics/stats?page_id=${currentPageId}&since=${prev.since}&until=${prev.until}&period=day`),
+    apiFetch(`/analytics/stats?page_id=${currentPageId}&since=${yr12ago}&until=${today}&period=month`),
+    apiFetch(`/analytics/posts?page_id=${currentPageId}&limit=50`),
   ]);
 
-  if (stats.status === 'fulfilled') {
-    renderKPIs(stats.value.metrics);
-    renderCharts(stats.value.metrics);
-  } else {
-    showError('Could not load insights: ' + stats.reason.message);
+  const m  = stats.status==='fulfilled'    ? stats.value.metrics    : {};
+  const pm = prevStats.status==='fulfilled' ? prevStats.value.metrics : null;
+  const mm = monthly12.status==='fulfilled' ? monthly12.value.metrics : null;
+
+  if(stats.status==='fulfilled'){
+    renderKPIs(m,pm,mm);
+    renderCharts(m);
+    renderProjections(m);
+  }else{
+    showError('Could not load insights: '+stats.reason.message);
   }
 
-  if (posts.status === 'fulfilled') renderPosts(posts.value.items);
-  else document.getElementById('posts-wrap').innerHTML = `<div class="empty-state"><div class="icon">📭</div><h3>No posts found</h3><p>${posts.reason.message}</p></div>`;
+  if(posts.status==='fulfilled'){
+    renderPosts(posts.value.items);
+    renderReels(posts.value.items);
+  }else{
+    document.getElementById('posts-wrap').innerHTML=`<div class="empty-state"><div class="icon">📭</div><p>${posts.reason.message}</p></div>`;
+  }
 }
 
 // ── KPIs ─────────────────────────────────────────────────────────────────────
-function renderKPIs(metrics) {
-  // Total fans from page data (always available) or lifetime insights
-  const fansFromPage = currentPageFans;
-  const fansFromInsights = metrics.page_fans;
-  const totalFans = fansFromPage || (fansFromInsights && fansFromInsights.length ? fansFromInsights[fansFromInsights.length - 1].value : null);
+function renderKPIs(m,pm,mm){
+  const video   = sumMetric(m.page_video_views);
+  const revenue = sumMetric(m.page_daily_video_ad_break_earnings);
+  const impr    = sumMetric(m.page_impressions)||(sumMetric(m.page_impressions_organic)+sumMetric(m.page_impressions_paid));
+  const reach   = sumMetric(m.page_impressions_unique);
+  const engage  = sumMetric(m.page_post_engagements);
+  const newFans = sumMetric(m.page_fan_adds);
+  const rpm     = video>0&&revenue>0?(revenue/video)*1000:null;
+  const fansVal = currentPageFans||(m.page_fans&&m.page_fans.length?m.page_fans[m.page_fans.length-1].value:null);
 
-  const newFans    = sumMetric(metrics.page_fan_adds);
-  const impr       = sumMetric(metrics.page_impressions) || sumMetric(metrics.page_impressions_organic) + sumMetric(metrics.page_impressions_paid);
-  const reach      = sumMetric(metrics.page_impressions_unique);
-  const engage     = sumMetric(metrics.page_post_engagements);
-  const video      = sumMetric(metrics.page_video_views);
-  const revenue    = sumMetric(metrics.page_daily_video_ad_break_earnings);
-  const rpm        = video > 0 && revenue > 0 ? (revenue / video) * 1000 : null;
+  document.getElementById('kpi-fans').textContent        = fmt(fansVal);
+  document.getElementById('kpi-new-fans').textContent    = newFans>0?fmt(newFans):'—';
+  document.getElementById('kpi-impressions').textContent = impr>0?fmt(impr):'—';
+  document.getElementById('kpi-reach').textContent       = reach>0?fmt(reach):'—';
+  document.getElementById('kpi-engage').textContent      = engage>0?fmt(engage):'—';
+  document.getElementById('kpi-video').textContent       = video>0?fmt(video):'—';
+  document.getElementById('kpi-revenue').textContent     = revenue>0?fmtMoney(revenue):'—';
+  document.getElementById('kpi-rpm').textContent         = rpm!=null?fmtMoney(rpm):'—';
 
-  document.getElementById('kpi-fans').textContent        = fmt(totalFans);
-  document.getElementById('kpi-new-fans').textContent    = newFans > 0 ? fmt(newFans) : '—';
-  document.getElementById('kpi-impressions').textContent = impr > 0 ? fmt(impr) : '—';
-  document.getElementById('kpi-reach').textContent       = reach > 0 ? fmt(reach) : '—';
-  document.getElementById('kpi-engage').textContent      = engage > 0 ? fmt(engage) : '—';
-  document.getElementById('kpi-video').textContent       = video > 0 ? fmt(video) : '—';
-  document.getElementById('kpi-revenue').textContent     = revenue > 0 ? fmtMoney(revenue) : '—';
-  document.getElementById('kpi-rpm').textContent         = rpm != null ? fmtMoney(rpm) : '—';
+  // MoM deltas
+  if(pm){
+    const pv=sumMetric(pm.page_video_views),pr=sumMetric(pm.page_daily_video_ad_break_earnings);
+    const pi=sumMetric(pm.page_impressions),prc=sumMetric(pm.page_impressions_unique);
+    const pe=sumMetric(pm.page_post_engagements),pnf=sumMetric(pm.page_fan_adds);
+    const prpm=pv>0&&pr>0?(pr/pv)*1000:null;
+    document.getElementById('kpi-video-delta').innerHTML    = deltaBadge(video,pv);
+    document.getElementById('kpi-revenue-delta').innerHTML  = deltaBadge(revenue,pr);
+    document.getElementById('kpi-impressions-delta').innerHTML = deltaBadge(impr,pi);
+    document.getElementById('kpi-reach-delta').innerHTML    = deltaBadge(reach,prc);
+    document.getElementById('kpi-engage-delta').innerHTML   = deltaBadge(engage,pe);
+    document.getElementById('kpi-new-fans-delta').innerHTML = deltaBadge(newFans,pnf);
+    if(prpm&&rpm) document.getElementById('kpi-rpm-delta').innerHTML = deltaBadge(rpm,prpm);
+  }
+
+  // 12M monthly averages
+  if(mm){
+    const months12=(mm.page_video_views||[]).length||1;
+    const avg12Video  = sumMetric(mm.page_video_views)/months12;
+    const avg12Rev    = sumMetric(mm.page_daily_video_ad_break_earnings)/months12;
+    if(avg12Video>0)  document.getElementById('kpi-video-avg').textContent  = `12M avg: ${fmt(avg12Video)}/mo`;
+    if(avg12Rev>0)    document.getElementById('kpi-revenue-avg').textContent = `12M avg: ${fmtMoney(avg12Rev)}/mo`;
+  }
 }
 
-// ── Charts ─────────────────────────────────────────────────────────────────────
-function renderCharts(metrics) {
-  const impData    = metrics.page_impressions || [];
-  const reachData  = metrics.page_impressions_unique || [];
-  const engData    = metrics.page_post_engagements || [];
-  const revData    = metrics.page_daily_video_ad_break_earnings || [];
+// ── Projections ───────────────────────────────────────────────────────────────
+function renderProjections(m){
+  const today=new Date();
+  const todayStr=today.toISOString().split('T')[0];
+  const wrap=document.getElementById('projections-wrap');
 
-  const labels     = impData.length ? impData.map(v => fmtDate(v.end_time))
-                   : reachData.length ? reachData.map(v => fmtDate(v.end_time))
-                   : engData.map(v => fmtDate(v.end_time));
+  // Only show if current period includes today and we're mid-month
+  if(currentUntil<todayStr||currentSince>todayStr){wrap.style.display='none';return;}
 
-  const engLabels  = engData.map(v => fmtDate(v.end_time));
+  const monthStart=new Date(today.getFullYear(),today.getMonth(),1);
+  const daysElapsed=Math.max(1,today.getDate());
+  const daysInMonth=new Date(today.getFullYear(),today.getMonth()+1,0).getDate();
+  const pct=Math.round(daysElapsed/daysInMonth*100);
 
-  if (lineChart) lineChart.destroy();
-  lineChart = new Chart(document.getElementById('lineChart').getContext('2d'), {
-    type: 'line',
-    data: {
-      labels,
-      datasets: [
-        { label: 'Impressions', data: impData.map(v => v.value || 0), borderColor: '#1877F2', backgroundColor: 'rgba(24,119,242,0.08)', tension: 0.35, fill: true, pointRadius: 2 },
-        { label: 'Reach',       data: reachData.map(v => v.value || 0), borderColor: '#42b72a', backgroundColor: 'rgba(66,183,42,0.07)', tension: 0.35, fill: true, pointRadius: 2 },
-      ],
-    },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { boxWidth: 12, font: { size: 12 } } } }, scales: { x: { ticks: { maxTicksLimit: 10, font: { size: 11 } }, grid: { display: false } }, y: { ticks: { callback: v => fmt(v), font: { size: 11 } }, grid: { color: '#f0f2f5' } } } },
+  const video   = sumMetric(m.page_video_views);
+  const revenue = sumMetric(m.page_daily_video_ad_break_earnings);
+  const rate    = daysElapsed;
+
+  const projVideo   = Math.round(video/rate*daysInMonth);
+  const projRevenue = revenue/rate*daysInMonth;
+  const projRpm     = projVideo>0&&projRevenue>0?(projRevenue/projVideo)*1000:null;
+
+  const monthName=today.toLocaleDateString('en-US',{month:'long'});
+  document.getElementById('proj-month').textContent=monthName;
+  document.getElementById('proj-days-label').textContent=`Day ${daysElapsed} of ${daysInMonth} (${pct}% through month)`;
+  document.getElementById('proj-bar').style.width=pct+'%';
+  document.getElementById('proj-views').textContent=video>0?fmt(projVideo):'—';
+  document.getElementById('proj-views-pace').textContent=video>0?`${fmt(Math.round(video/rate))}/day pace`:'';
+  document.getElementById('proj-revenue').textContent=revenue>0?fmtMoney(projRevenue):'—';
+  document.getElementById('proj-revenue-pace').textContent=revenue>0?`${fmtMoney(revenue/rate)}/day pace`:'';
+  document.getElementById('proj-rpm').textContent=projRpm!=null?fmtMoney(projRpm):'—';
+  wrap.style.display='block';
+}
+
+// ── Charts ────────────────────────────────────────────────────────────────────
+function renderCharts(m){
+  const vidData  = m.page_video_views||[];
+  const engData  = m.page_post_engagements||[];
+  const revData  = m.page_daily_video_ad_break_earnings||[];
+
+  if(lineChart)lineChart.destroy();
+  lineChart=new Chart(document.getElementById('lineChart').getContext('2d'),{
+    type:'line',
+    data:{labels:vidData.map(v=>fmtDate(v.end_time)),datasets:[
+      {label:'Video Views',data:vidData.map(v=>v.value||0),borderColor:'#1877F2',backgroundColor:'rgba(24,119,242,.1)',tension:.35,fill:true,pointRadius:2},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxTicksLimit:10,font:{size:11}},grid:{display:false}},y:{ticks:{callback:v=>fmt(v),font:{size:11}},grid:{color:'#f0f2f5'}}}},
   });
 
-  if (barChart) barChart.destroy();
-  barChart = new Chart(document.getElementById('barChart').getContext('2d'), {
-    type: 'bar',
-    data: { labels: engLabels, datasets: [{ label: 'Engagements', data: engData.map(v => v.value || 0), backgroundColor: 'rgba(24,119,242,0.7)', borderRadius: 4 }] },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 10, font: { size: 11 } }, grid: { display: false } }, y: { ticks: { callback: v => fmt(v), font: { size: 11 } }, grid: { color: '#f0f2f5' } } } },
+  if(barChart)barChart.destroy();
+  barChart=new Chart(document.getElementById('barChart').getContext('2d'),{
+    type:'bar',
+    data:{labels:engData.map(v=>fmtDate(v.end_time)),datasets:[{label:'Engagements',data:engData.map(v=>v.value||0),backgroundColor:'rgba(24,119,242,.7)',borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxTicksLimit:10,font:{size:11}},grid:{display:false}},y:{ticks:{callback:v=>fmt(v),font:{size:11}},grid:{color:'#f0f2f5'}}}},
   });
 
-  const revWrap = document.getElementById('revenue-chart-wrap');
-  if (revData.length > 0 && revData.some(v => v.value > 0)) {
-    revWrap.style.display = 'block';
-    if (revenueChart) revenueChart.destroy();
-    revenueChart = new Chart(document.getElementById('revenueChart').getContext('2d'), {
-      type: 'bar',
-      data: { labels: revData.map(v => fmtDate(v.end_time)), datasets: [{ label: 'Revenue ($)', data: revData.map(v => v.value || 0), backgroundColor: 'rgba(245,158,11,0.75)', borderRadius: 4 }] },
-      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 10, font: { size: 11 } }, grid: { display: false } }, y: { ticks: { callback: v => '$' + v.toFixed(2), font: { size: 11 } }, grid: { color: '#f0f2f5' } } } },
+  const revWrap=document.getElementById('revenue-chart-wrap');
+  if(revData.length&&revData.some(v=>v.value>0)){
+    revWrap.style.display='block';
+    if(revenueChart)revenueChart.destroy();
+    revenueChart=new Chart(document.getElementById('revenueChart').getContext('2d'),{
+      type:'bar',
+      data:{labels:revData.map(v=>fmtDate(v.end_time)),datasets:[{label:'Revenue',data:revData.map(v=>v.value||0),backgroundColor:'rgba(245,158,11,.75)',borderRadius:4}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxTicksLimit:10,font:{size:11}},grid:{display:false}},y:{ticks:{callback:v=>'$'+v.toFixed(2),font:{size:11}},grid:{color:'#f0f2f5'}}}},
     });
-  } else {
-    revWrap.style.display = 'none';
-  }
+  }else{revWrap.style.display='none';}
+}
+
+// ── Reels ─────────────────────────────────────────────────────────────────────
+function renderReels(posts){
+  const wrap=document.getElementById('reels-wrap');
+  const videos=(posts||[]).filter(p=>{
+    const mt=p.attachments?.data?.[0]?.media_type||'';
+    return mt==='video'||mt==='reel'||mt==='animated_image_video';
+  }).sort((a,b)=>(b.insights?.post_video_views||0)-(a.insights?.post_video_views||0));
+
+  if(!videos.length){wrap.style.display='none';return;}
+  wrap.style.display='block';
+
+  const rows=videos.map((p,i)=>{
+    const msg=(p.message||p.story||'(No caption)').slice(0,80);
+    const date=p.created_time?new Date(p.created_time).toLocaleDateString('en-US',{month:'short',day:'numeric'}):'-';
+    const ins=p.insights||{};
+    return`<tr>
+      <td><span style="color:var(--sub);font-size:12px;">#${i+1}</span> <div class="post-msg" title="${msg.replace(/"/g,'&quot;')}">${msg}</div>${p.permalink_url?`<a href="${p.permalink_url}" target="_blank" class="post-link">Watch →</a>`:''}</td>
+      <td>${date}</td>
+      <td class="num"><strong>${fmt(ins.post_video_views)}</strong></td>
+      <td class="num">${fmt(ins.post_impressions_unique)}</td>
+      <td class="num">${fmt(ins.post_engaged_users)}</td>
+      <td class="num">${fmt(ins.post_reactions_like_total)}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('reels-table-wrap').innerHTML=`
+    <table class="data-table">
+      <thead><tr><th>Video / Reel</th><th>Date</th><th class="num">Views</th><th class="num">Reach</th><th class="num">Engaged</th><th class="num">Likes</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
 }
 
 // ── Posts ─────────────────────────────────────────────────────────────────────
-function renderPosts(posts) {
-  const wrap = document.getElementById('posts-wrap');
-  if (!posts || posts.length === 0) {
-    wrap.innerHTML = `<div class="empty-state"><div class="icon">📭</div><h3>No posts yet</h3><p>No recent posts found for this page.</p></div>`;
-    return;
-  }
-  const rows = posts.map(p => {
-    const msg  = (p.message || p.story || '(No text)').slice(0, 120);
-    const date = p.created_time ? new Date(p.created_time).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
-    const ins  = p.insights || {};
-    const type = (p.attachments?.data?.[0]?.media_type || 'post').replace(/_/g, ' ');
-    return `<tr>
-      <td><div class="post-msg" title="${msg.replace(/"/g,'&quot;')}">${msg}</div>${p.permalink_url ? `<a href="${p.permalink_url}" target="_blank" class="post-link">View →</a>` : ''}</td>
-      <td><span class="badge">${type}</span></td>
+function renderPosts(posts){
+  const wrap=document.getElementById('posts-wrap');
+  if(!posts||!posts.length){wrap.innerHTML='<div class="empty-state"><div class="icon">📭</div><p>No posts found.</p></div>';return;}
+  const rows=posts.map(p=>{
+    const msg=(p.message||p.story||'(No text)').slice(0,100);
+    const date=p.created_time?new Date(p.created_time).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'-';
+    const ins=p.insights||{};
+    const mt=p.attachments?.data?.[0]?.media_type||'post';
+    const isVideo=mt==='video'||mt==='reel';
+    return`<tr>
+      <td><div class="post-msg" title="${msg.replace(/"/g,'&quot;')}">${msg}</div>${p.permalink_url?`<a href="${p.permalink_url}" target="_blank" class="post-link">View →</a>`:''}</td>
+      <td><span class="badge${isVideo?' video':''}">${mt.replace(/_/g,' ')}</span></td>
       <td>${date}</td>
-      <td>${fmt(ins.post_impressions_unique)}</td>
-      <td>${fmt(ins.post_engaged_users)}</td>
-      <td>${fmt(ins.post_reactions_like_total)}</td>
+      <td class="num">${fmt(ins.post_impressions_unique)}</td>
+      <td class="num">${fmt(ins.post_engaged_users)}</td>
+      <td class="num">${fmt(ins.post_reactions_like_total)}</td>
     </tr>`;
   }).join('');
-  wrap.innerHTML = `<table class="posts-table"><thead><tr><th>Post</th><th>Type</th><th>Date</th><th>Reach</th><th>Engaged</th><th>Likes</th></tr></thead><tbody>${rows}</tbody></table>`;
+  wrap.innerHTML=`<table class="data-table"><thead><tr><th>Post</th><th>Type</th><th>Date</th><th class="num">Reach</th><th class="num">Engaged</th><th class="num">Likes</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
-document.getElementById('login-btn').href = API + '/auth/login';
+document.getElementById('login-btn').href=API+'/auth/login';
 checkSession();
 </script>
 </body>
